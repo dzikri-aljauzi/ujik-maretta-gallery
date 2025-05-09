@@ -13,8 +13,11 @@ export default function Navbar() {
     { name: "Ujik", href: "/profiles/partner1" },
     { name: "Maretta", href: "/profiles/partner2" },
     { name: "Upload", href: "/upload" },
+<<<<<<< HEAD
     { name: "Blob Test", href: "/blob-test" },
     { name: "Avatar Test", href: "/avatar-test" },
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
   ]
 
   return (
@@ -24,13 +27,21 @@ export default function Navbar() {
           <Heart className="h-6 w-6 text-[#FFAEBC]" />
           <span className="hidden font-bold sm:inline-block">Ujik and Maretta</span>
         </Link>
+<<<<<<< HEAD
         <nav className="flex items-center space-x-4 lg:space-x-6 overflow-x-auto">
+=======
+        <nav className="flex items-center space-x-4 lg:space-x-6">
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
+<<<<<<< HEAD
                 "text-sm font-medium transition-colors hover:text-[#FFAEBC] whitespace-nowrap",
+=======
+                "text-sm font-medium transition-colors hover:text-[#FFAEBC]",
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
                 pathname === item.href ? "text-[#FFAEBC]" : "text-muted-foreground",
               )}
             >

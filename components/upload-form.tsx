@@ -5,7 +5,11 @@ import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+<<<<<<< HEAD
 import { Upload, X, CheckCircle } from "lucide-react"
+=======
+import { Upload, X } from "lucide-react"
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -20,7 +24,10 @@ export function UploadForm() {
   const [preview, setPreview] = useState<string | null>(null)
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+<<<<<<< HEAD
   const [success, setSuccess] = useState<boolean>(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
   const [formData, setFormData] = useState({
     caption: "",
     description: "",
@@ -64,7 +71,10 @@ export function UploadForm() {
     try {
       setIsUploading(true)
       setError(null)
+<<<<<<< HEAD
       setSuccess(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
       // Create form data for API request
       const apiFormData = new FormData()
@@ -86,6 +96,7 @@ export function UploadForm() {
         return
       }
 
+<<<<<<< HEAD
       // Show success message
       setSuccess(true)
 
@@ -106,6 +117,10 @@ export function UploadForm() {
       router.refresh()
 
       // No redirect to gallery - removed the setTimeout and redirect
+=======
+      router.push("/")
+      router.refresh()
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
     } catch (error) {
       console.error("Error uploading photo:", error)
       setError("An unexpected error occurred. Please try again.")
@@ -131,6 +146,7 @@ export function UploadForm() {
         </Alert>
       )}
 
+<<<<<<< HEAD
       {success && (
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-500" />
@@ -138,6 +154,8 @@ export function UploadForm() {
         </Alert>
       )}
 
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
       <div className="space-y-2">
         <Label htmlFor="photo">Photo</Label>
         {preview ? (
@@ -235,9 +253,15 @@ export function UploadForm() {
       <Button
         type="submit"
         className="w-full bg-[#B4F8C8] hover:bg-[#B4F8C8]/90 text-black"
+<<<<<<< HEAD
         disabled={!selectedFile || isUploading || success}
       >
         {isUploading ? "Uploading..." : success ? "Uploaded!" : "Upload Photo"}
+=======
+        disabled={!selectedFile || isUploading}
+      >
+        {isUploading ? "Uploading..." : "Upload Photo"}
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
       </Button>
     </form>
   )

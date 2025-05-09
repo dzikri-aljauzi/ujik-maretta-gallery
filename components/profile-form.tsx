@@ -9,7 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+<<<<<<< HEAD
 import { CheckCircle } from "lucide-react"
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 import type { Profile } from "@/lib/types"
 import { UploadAvatar } from "./upload-avatar"
 
@@ -29,7 +32,10 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+<<<<<<< HEAD
   const [success, setSuccess] = useState(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -44,7 +50,10 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
     e.preventDefault()
     setIsLoading(true)
     setError(null)
+<<<<<<< HEAD
     setSuccess(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
     try {
       const response = await fetch("/api/profile", {
@@ -65,6 +74,7 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
         return
       }
 
+<<<<<<< HEAD
       setSuccess(true)
 
       // Wait a moment to show success message before closing edit mode
@@ -72,6 +82,10 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
         setIsEditing(false)
         router.refresh()
       }, 1500)
+=======
+      setIsEditing(false)
+      router.refresh()
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
     } catch (error) {
       console.error("Failed to update profile:", error)
       setError("An unexpected error occurred. Please try again.")
@@ -96,6 +110,7 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
         </Alert>
       )}
 
+<<<<<<< HEAD
       {success && (
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-500" />
@@ -103,6 +118,8 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
         </Alert>
       )}
 
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
       <div className="space-y-2">
         <Label htmlFor="avatar">Profile Picture</Label>
         <UploadAvatar currentUrl={formData.avatar} onUpload={handleAvatarUpload} partnerId={partnerId} />
@@ -124,8 +141,13 @@ export function ProfileForm({ profile, partnerId }: ProfileFormProps) {
       </div>
 
       <div className="flex gap-2">
+<<<<<<< HEAD
         <Button type="submit" disabled={isLoading || success}>
           {isLoading ? "Saving..." : success ? "Saved!" : "Save Changes"}
+=======
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "Saving..." : "Save Changes"}
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
         </Button>
         <Button type="button" variant="outline" onClick={() => setIsEditing(false)} disabled={isLoading}>
           Cancel

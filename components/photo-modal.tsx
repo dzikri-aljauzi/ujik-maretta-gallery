@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+<<<<<<< HEAD
+=======
+import Image from "next/image"
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 import { X, Trash2 } from "lucide-react"
 import type { Photo } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
@@ -28,8 +32,11 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
   const [isDeleting, setIsDeleting] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [error, setError] = useState<string | null>(null)
+<<<<<<< HEAD
   const [showUrl, setShowUrl] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -53,7 +60,10 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
         body: JSON.stringify({
           photoId: photo.id,
           url: photo.url,
+<<<<<<< HEAD
           partner: photo.partner,
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
         }),
       })
 
@@ -77,6 +87,7 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
     }
   }
 
+<<<<<<< HEAD
   // Ensure photo has all required properties
   const safePhoto = {
     id: photo?.id || "unknown",
@@ -100,6 +111,12 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
           className="relative w-[95vw] h-[90vh] max-w-6xl m-0 flex flex-col md:flex-row bg-background rounded-lg overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
+=======
+  return (
+    <>
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={onClose}>
+        <div className="relative max-w-4xl w-full h-[90vh] m-4" onClick={(e) => e.stopPropagation()}>
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
           <div className="absolute top-2 right-2 z-10 flex gap-2">
             <Button
               variant="destructive"
@@ -121,6 +138,7 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
             </Button>
           </div>
 
+<<<<<<< HEAD
           {error && (
             <Alert variant="destructive" className="absolute top-16 left-4 right-4 z-10">
               <AlertDescription>{error}</AlertDescription>
@@ -184,6 +202,43 @@ export function PhotoModal({ photo, onClose }: PhotoModalProps) {
                   <p>{safePhoto.url}</p>
                 </div>
               )}
+=======
+          <div className="h-full flex flex-col md:flex-row bg-background rounded-lg overflow-hidden">
+            {error && (
+              <Alert variant="destructive" className="absolute top-16 left-4 right-4 z-10">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
+            <div className="relative flex-1 min-h-[300px]">
+              <Image
+                src={photo.url || "/placeholder.svg"}
+                alt={photo.caption || "Gallery photo"}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div className="w-full md:w-80 p-4 border-t md:border-l md:border-t-0">
+              <h3 className="text-xl font-semibold mb-2">{photo.caption || "Our moment"}</h3>
+              <p className="text-sm text-muted-foreground mb-4">{formatDate(photo.date)}</p>
+
+              <div className="mb-4">
+                <span
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-opacity-10"
+                  style={{
+                    backgroundColor: photo.partner === "partner1" ? "#FFAEBC" : "#A0E7E5",
+                    color: photo.partner === "partner1" ? "#FFAEBC" : "#A0E7E5",
+                  }}
+                >
+                  {photo.partner === "partner1" ? "Ujik" : "Maretta"}
+                </span>
+              </div>
+
+              {photo.description && <p className="text-sm">{photo.description}</p>}
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
             </div>
           </div>
         </div>

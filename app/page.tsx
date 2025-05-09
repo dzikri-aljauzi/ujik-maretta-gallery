@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 import { BlobGallery } from "@/components/blob-gallery"
 
 export default async function Home() {
+=======
+import { Gallery } from "@/components/gallery"
+import { getPhotos } from "@/lib/photos"
+
+export default async function Home() {
+  const photos = await getPhotos()
+
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
   return (
     <div className="container py-8">
       <div className="flex flex-col items-center mb-8 text-center">
@@ -10,7 +19,11 @@ export default async function Home() {
         </p>
       </div>
 
+<<<<<<< HEAD
       <BlobGallery />
+=======
+      <Gallery photos={photos} />
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
     </div>
   )
 }

@@ -3,10 +3,17 @@
 import type React from "react"
 
 import { useState } from "react"
+<<<<<<< HEAD
 import { Upload, CheckCircle, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { SimpleAvatar } from "./simple-avatar"
+=======
+import Image from "next/image"
+import { Upload } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
 interface UploadAvatarProps {
   currentUrl: string | null
@@ -17,8 +24,11 @@ interface UploadAvatarProps {
 export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarProps) {
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+<<<<<<< HEAD
   const [success, setSuccess] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -39,7 +49,10 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
     try {
       setIsUploading(true)
       setError(null)
+<<<<<<< HEAD
       setSuccess(false)
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
 
       // Create form data for API request
       const formData = new FormData()
@@ -59,6 +72,7 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
         return
       }
 
+<<<<<<< HEAD
       console.log("Avatar uploaded successfully:", result.url)
       setSuccess(true)
       onUpload(result.url)
@@ -70,6 +84,9 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
       setTimeout(() => {
         setSuccess(false)
       }, 3000)
+=======
+      onUpload(result.url)
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
     } catch (error) {
       console.error("Error uploading avatar:", error)
       setError("Failed to upload avatar. Please try again.")
@@ -78,10 +95,13 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
     }
   }
 
+<<<<<<< HEAD
   const handleRefresh = () => {
     setRefreshKey((prev) => prev + 1)
   }
 
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
   return (
     <div className="space-y-4">
       {error && (
@@ -90,6 +110,7 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
         </Alert>
       )}
 
+<<<<<<< HEAD
       {success && (
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-500" />
@@ -103,6 +124,18 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
         </div>
 
         <div className="flex flex-col gap-2">
+=======
+      <div className="flex items-center gap-4">
+        <div className="relative h-16 w-16 overflow-hidden rounded-full bg-muted">
+          {currentUrl ? (
+            <Image src={currentUrl || "/placeholder.svg"} alt="Avatar" fill className="object-cover" />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#FFAEBC] to-[#A0E7E5]" />
+          )}
+        </div>
+
+        <div>
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
           <Button type="button" variant="outline" size="sm" className="relative" disabled={isUploading}>
             <input
               type="file"
@@ -114,11 +147,14 @@ export function UploadAvatar({ currentUrl, onUpload, partnerId }: UploadAvatarPr
             <Upload className="h-4 w-4 mr-2" />
             {isUploading ? "Uploading..." : "Upload"}
           </Button>
+<<<<<<< HEAD
 
           <Button type="button" variant="ghost" size="sm" onClick={handleRefresh} className="text-xs">
             <RefreshCw className="h-3 w-3 mr-1" />
             Refresh
           </Button>
+=======
+>>>>>>> ae1986620f1c5749f48bd7bb9f397a2e20fa6f43
         </div>
       </div>
     </div>

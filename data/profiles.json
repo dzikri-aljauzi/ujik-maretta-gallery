@@ -1,0 +1,16 @@
+{
+  "partner1": {
+    "id": "partner1",
+    "name": "Ujik",
+    "tagline": "Tech Geek",
+    "bio": "I love capturing our special moments together.",
+    "avatar": "/uploads/partner1-415872b7-7fb3-492d-98ce-0e1dd340c5fc-IMG-20250504-WA0021.jpg"
+  },
+  "partner2": {
+    "id": "partner2",
+    "name": "Maretta",
+    "tagline": "Pekerja keras well",
+    "bio": "Always looking for new experiences to share.",
+    "avatar": "/uploads/partner2-27455681-8cee-4573-a1f3-2b18bc18c422-IMG-20250403-WA0003.jpg"
+  }
+}
